@@ -7,12 +7,12 @@
   "author": {
     "name": "TheSakyo",
     "email": "sachaenzo185@gmail.com",
-    "url": "https://sakyo-dev.pro"
+    "url": "https://sakyo-dev.pro/"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
+      "url": "https://opensource.org/licenses/MIT/"
     }
   ],
   "publishConfig": {
