@@ -1,0 +1,47 @@
+name: Publish Unity Package to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'package.json'
+      - '.github/**'
+      - 'LICENSE'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      # Authenticate to GitHub Packages (npm registry)
+      - name: Authenticate to GitHub Packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      # Verify Unity project structure
+      - name: Verify Unity project structure
+        run: |
+          if [ ! -f "./package.json" ]; then
+            echo "Error: package.json file is missing!" && exit 1
+          fi
+
+      # Build Unity Package (.tgz)
+      - name: Build Unity Package (.tgz)
+        run: |
+          mkdir -p ./dist
+          tar -czf ./dist/SakyoGameLib.tgz ./Runtime ./Editor ./package.json
+
+      # Verify .tgz package
+      - name: Verify .tgz package
+        run: |
+          ls -lh ./dist/SakyoGameLib.tgz
+
+      # Publish Unity Package to GitHub Packages with public access
+      - name: Publish Unity Package to GitHub Packages
+        run: |
+          npm publish ./dist/SakyoGameLib.tgz --access public --registry https://npm.pkg.github.com
