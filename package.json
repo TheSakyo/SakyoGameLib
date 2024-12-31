@@ -1,0 +1,22 @@
+{
+  "name": "@thesakyo/sakyogamelib",
+  "version": "0.1.0",
+  "displayName": "SakyoGameLib",
+  "description": "Une librairie utilitaire en C# pour faciliter le développement de jeux Unity.",
+  "unity": "6000.0",
+  "author": {
+    "name": "TheSakyo",
+    "email": "sachaenzo185@gmail.com",
+    "url": "https://sakyo-dev.pro"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  }
+}
