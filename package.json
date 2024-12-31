@@ -16,7 +16,7 @@
     }
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
+    "@thesakyo:registry": "https://npm.pkg.github.com/",
     "access": "public"
   }
 }
