@@ -1,5 +1,5 @@
 {
-  "name": "fr.thesakyo.sakyogamelib",
+  "name": "@sakyodev/sakyogamelib",
   "version": "0.1.1",
   "displayName": "SakyoGameLib",
   "description": "Une librairie utilitaire en C# pour faciliter le développement de jeux Unity.",
