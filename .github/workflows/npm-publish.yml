@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'package.json'
       - '.github/**'
       - 'LICENSE'
+      - 'README.md'
 
 jobs:
   build:
