@@ -32,7 +32,7 @@ jobs:
           else
             echo "No version change detected."
             echo "version_changed=false" >> $GITHUB_ENV
-
+          fi
       # Stop the job if the version has not changed
       - name: Skip if no version change
         if: env.version_changed == 'false'
