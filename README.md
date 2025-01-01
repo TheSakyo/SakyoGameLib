@@ -6,7 +6,7 @@ Je suis encore débutant dans le développement de jeux Unity, mais je compte l'
 
 ## 📦 Installation
 
-### Via Unity Package Manager (UPM) [**Recommandé**] :
+### Installation via Unity Package Manager (UPM) [**Recommandé**] :
 
 1. Ouvre ton projet Unity.
 2. Ouvre **Window > Package Manager**.
@@ -20,9 +20,11 @@ Je suis encore débutant dans le développement de jeux Unity, mais je compte l'
 Si tu es plus coriace ou que tu souhaite installer une version spécifique de **SakyoGameLib**, 
 tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfig.toml` et  `manifest.json`.
 
-### Ajouter un registre personnalisé dans **`.upmconfig.toml`** :
+### Installation manuelle via `.upmconfig.toml` et `manifest.json` :
 
-#### Si le fichier `.upmconfig.toml` n'existe pas :
+#### Ajout d'un registre personnalisé dans **`.upmconfig.toml`** :
+
+##### Si le fichier `.upmconfig.toml` n'existe pas :
 
 - Pour **Windows**, crée le fichier à l'emplacement suivant :  
   `C:\Users\<User>\.upmconfig.toml`
@@ -33,7 +35,7 @@ tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfi
 - Pour **Linux**, crée-le à l'emplacement suivant :  
   `/home/<User>/.upmconfig.toml`
 
-#### Ouvre le fichier `.upmconfig.toml` et ajoute ceci :
+##### Ouvre le fichier `.upmconfig.toml` et ajoute ceci :
 
 ```toml
 [npmAuth."https://npm.pkg.github.com/@thesakyo"] 
@@ -45,7 +47,7 @@ Cette instruction permettra à Unity de se connecter au registre GitHub pour té
 
 Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de ton projet Unity.
 
-### Installation manuelle du package via `manifest.json` :
+#### Installation manuelle du package via `manifest.json` :
 
 1. Ouvre ton projet Unity.
 2. Fait clic droit dans l'explorateur de projet. 
