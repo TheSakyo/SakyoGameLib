@@ -20,7 +20,6 @@ jobs:
       # Authenticate to GitHub Packages (npm registry)
       - name: Authenticate to GitHub Packages
         run: |
-          echo "@thesakyo:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
 
       # Verify if the package.json version has changed
