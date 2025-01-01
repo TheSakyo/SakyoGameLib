@@ -39,8 +39,8 @@ Si tu veux ajouter automatiquement ma librairie pour chaque projet, tu peux suiv
 ```toml
 [[scopedRegistries]]
 name = "sakyogameregistry"
-url = "https://npm.pkg.github.com"
-scopes = ["@thesakyo"]
+url = "https://npm.pkg.github.com/@thesakyo"
+scopes = ["fr.thesakyo"]
 ```
 
 Ensuite, tu pourras installer **SakyoGameLib** via le **Package Manager** comme décrit ci-dessus.
