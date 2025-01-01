@@ -6,24 +6,31 @@ Je suis encore débutant dans le développement de jeux Unity, mais je compte l'
 
 ## 📦 Installation
 
-### Via Unity Package Manager (UPM)
+### Installation via Unity Package Manager (UPM) [**Recommandé**] :
 
 1. Ouvre ton projet Unity.
+
 2. Ouvre **Window > Package Manager**.
+
 3. Clique sur l'icône en haut à gauche et sélectionne **My Registries**.
-4. **SakyoGameLib** devrait apparaître dans la liste des packages disponibles si tu as opté pour l'ajout via le fichier **`.upmconfig.toml`** (voir plus bas).  
-   Si ce n'est pas le cas, tu peux l'ajouter manuellement :
-    - Clique sur le bouton **+** en haut à gauche de la fenêtre **Package Manager**.
-    - Sélectionne **Add package from git URL**.
-    - Dans la fenêtre qui apparaît, entre l'URL du dépôt :  
-      `https://github.com/TheSakyo/SakyoGameLib.git`
-5. Clique sur **Install** pour ajouter **SakyoGameLib** à ton projet.
 
-Si tu veux ajouter automatiquement ma librairie pour chaque projet, tu peux suivre cette procédure :
+4. Clique sur le bouton **+** en haut à droite de la fenêtre **Package Manager**.
 
-### Ajouter un registre personnalisé dans **`.upmconfig.toml`** :
+5. Sélectionne **Install package from git URL**.
 
-#### Si le fichier `.upmconfig.toml` n'existe pas :
+6. Dans la fenêtre qui apparaît, entre l'URL du dépôt :
+
+   `https://github.com/TheSakyo/SakyoGameLib.git`
+7. Clique sur **Install** pour ajouter **SakyoGameLib** à ton projet.
+
+Si tu es plus coriace ou que tu souhaite installer une version spécifique de **SakyoGameLib**,
+tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfig.toml` et  `manifest.json`.
+
+### Installation manuelle via `.upmconfig.toml` et `manifest.json` :
+
+#### • Ajout d'un registre personnalisé dans **`.upmconfig.toml`** :
+
+##### Si le fichier `.upmconfig.toml` n'existe pas :
 
 - Pour **Windows**, crée le fichier à l'emplacement suivant :  
   `C:\Users\<User>\.upmconfig.toml`
@@ -34,16 +41,67 @@ Si tu veux ajouter automatiquement ma librairie pour chaque projet, tu peux suiv
 - Pour **Linux**, crée-le à l'emplacement suivant :  
   `/home/<User>/.upmconfig.toml`
 
-#### Ouvre le fichier `.upmconfig.toml` et ajoute ceci dans la section appropriée :
+##### Ouvre le fichier `.upmconfig.toml` et ajoute ceci :
 
 ```toml
-[[scopedRegistries]]
-name = "SakyoGame Registry"
-url = "https://npm.pkg.github.com/@thesakyo"
-scopes = ["fr.thesakyo"]
+[npmAuth."https://npm.pkg.github.com/@thesakyo"] 
+token = "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" 
+alwaysAuth = true
 ```
 
-Ensuite, tu pourras installer **SakyoGameLib** via le **Package Manager** comme décrit ci-dessus.
+Cette instruction permettra à Unity de se connecter au registre GitHub pour télécharger le package **SakyoGameLib**.
+
+Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de ton projet Unity.
+
+#### • Installation manuelle du package via `manifest.json` :
+
+1. Ouvre ton projet Unity.
+
+2. Fait clic droit dans l'explorateur de projet.
+
+3. Sélectionne **Show in Explorer**.
+
+4. Repère le dossier **Packages**, s'il n'existe pas, crée-le.
+
+5. Ouvre ou créer le fichier `manifest.json` dans un éditeur de texte.
+
+6. Le contenu du fichier `manifest.json` devrait ressembler à ceci :
+
+    ```json
+    {
+      "dependencies": {
+        "domain.organization.package": "x.y.z"
+      },
+      "scopedRegistries": []
+    }
+    ````
+    - `domain.organization.package` représente un package déjà installé dans ton projet Unity.
+    - `x.y.z` représente la version du package que tu souhaites installer.
+
+   **Information :** Il est possible que tu aies déjà des dépendances dans la section **dependencies**.
+
+7. Ajoute le registre personnalisé dans la section **scopedRegistries** ainsi que le package **SakyoGameLib** dans la section **dependencies** :
+
+    ```json
+    {
+      "dependencies": {
+        "domain.organization.package": "x.y.z", 
+        "fr.thesakyo.sakyogamelib": "x.y.z" 
+      },
+      "scopedRegistries": [
+        {
+          "name": "SakyoGame Registry",
+          "url": "https://npm.pkg.github.com/@thesakyo",
+          "scopes": ["fr.thesakyo"]
+        }
+      ]
+    }
+    ```
+   N'oublie pas de remplacer `x.y.z` par la version souhaitée de **SakyoGameLib**.
+
+8. Sauvegarde le fichier `manifest.json`.
+
+9. Unity devrait automatiquement télécharger et installer **SakyoGameLib** dans ton projet *(tu peux le retrouver dans le Package Manager dans le registre appelé **SakyoGame Registry**)*.
 
 ## 🚀 Fonctionnalités
 
