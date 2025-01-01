@@ -38,7 +38,7 @@ Si tu veux ajouter automatiquement ma librairie pour chaque projet, tu peux suiv
 
 ```toml
 [[scopedRegistries]]
-name = "sakyogameregistry"
+name = "SakyoGame Registry"
 url = "https://npm.pkg.github.com/@thesakyo"
 scopes = ["fr.thesakyo"]
 ```
