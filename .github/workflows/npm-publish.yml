@@ -1,13 +1,15 @@
 name: Publish Unity Package to GitHub Packages
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
-    paths:
-      - 'package.json'
+
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +22,24 @@ jobs:
         run: |
           echo "@thesakyo:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+
+      # Verify if the package.json version has changed
+      - name: Check version change
+        id: version_check
+        run: |
+          if git diff HEAD^ HEAD -- package.json | grep '"version"'; then
+            echo "Version updated."
+            echo "version_changed=true" >> $GITHUB_ENV
+          else
+            echo "No version change detected."
+            echo "version_changed=false" >> $GITHUB_ENV
+
+      # Stop the job if the version has not changed
+      - name: Skip if no version change
+        if: env.version_changed == 'false'
+        run: |
+          echo "Skipping publish because the version has not changed."
+          exit 0
 
       # Verify Unity project structure
       - name: Verify Unity project structure
