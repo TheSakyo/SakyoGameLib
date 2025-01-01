@@ -61,4 +61,4 @@ jobs:
       # Publish Unity Package to GitHub Packages with public access
       - name: Publish Unity Package to GitHub Packages
         run: |
-          npm publish ./dist/SakyoGameLib.tgz --access public --registry https://npm.pkg.github.com
+          npm publish ./dist/SakyoGameLib.tgz
