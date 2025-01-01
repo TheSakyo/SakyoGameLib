@@ -41,7 +41,7 @@ token = "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"
 alwaysAuth = true
 ```
 
-Ce fichier permettra à Unity de se connecter au registre GitHub pour télécharger le package **SakyoGameLib**.
+Cette instruction permettra à Unity de se connecter au registre GitHub pour télécharger le package **SakyoGameLib**.
 
 Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de ton projet Unity.
 
