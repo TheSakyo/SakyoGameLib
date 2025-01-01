@@ -22,7 +22,7 @@ tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfi
 
 ### Installation manuelle via `.upmconfig.toml` et `manifest.json` :
 
-#### Ajout d'un registre personnalisé dans **`.upmconfig.toml`** :
+#### • Ajout d'un registre personnalisé dans **`.upmconfig.toml`** :
 
 ##### Si le fichier `.upmconfig.toml` n'existe pas :
 
@@ -47,7 +47,7 @@ Cette instruction permettra à Unity de se connecter au registre GitHub pour té
 
 Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de ton projet Unity.
 
-#### Installation manuelle du package via `manifest.json` :
+#### • Installation manuelle du package via `manifest.json` :
 
 1. Ouvre ton projet Unity.
 2. Fait clic droit dans l'explorateur de projet. 
