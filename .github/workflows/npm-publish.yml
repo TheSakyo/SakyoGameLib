@@ -51,7 +51,7 @@ jobs:
       - name: Build Unity Package (.tgz)
         run: |
           mkdir -p ./dist
-          tar -czf ./dist/SakyoGameLib.tgz ./Runtime ./Editor ./package.json ./README.md ./LICENSE.md
+          tar -czf ./dist/SakyoGameLib.tgz ./Runtime ./Editor ./package.json ./CHANGELOG.md ./README.md ./LICENSE.md
 
       # Verify .tgz package
       - name: Verify .tgz package
