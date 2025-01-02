@@ -52,13 +52,13 @@ namespace SakyoGame.Lib.Actors {
          *  The camera associated with the player.
          * </summary>
          */
-        internal Camera Target => _camera;
+        public Camera Target => _camera;
 
         /**
          * <summary>
          *  The camera mode of the player.
          * </summary>
          */
-        internal ECameraMode Mode { get; set; } = ECameraMode.FirstPersonView;
+        public ECameraMode Mode { get; set; } = ECameraMode.FirstPersonView;
     }
 }
