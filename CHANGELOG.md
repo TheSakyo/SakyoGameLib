@@ -10,7 +10,7 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/), et ce p
 
 ### Modifications
 - Les méthodes des classes `MapGenerator` et `Display` sont maintenant surchargeables, permettant ainsi une plus grande personnalisation.
-- La visibilité des méthodes getter de la classe CameraView a été mise à jour pour être public, offrant un accès plus large.
+- La visibilité des méthodes `getter` de la classe CameraView a été mise à jour pour être public, offrant un accès plus large.
     
 ---
 
