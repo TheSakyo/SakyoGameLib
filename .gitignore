@@ -64,7 +64,8 @@ Scene.unity.meta
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-LICENSE.meta
+*.md.meta
+*.json.meta
 
 # Ignore Unity3D generated file on crash reports
 sysinfo.txt
