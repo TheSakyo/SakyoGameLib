@@ -55,7 +55,7 @@ namespace SakyoGame.Lib.Textures {
          * <exception cref="NullReferenceException">Thrown when the mesh data is null.</exception>
          * <exception cref="MissingComponentException">Thrown when no mesh components are found.</exception>
          */
-        public void DrawMeshMap(MeshData meshData, Texture texture) {
+        public virtual void DrawMeshMap(MeshData meshData, Texture texture) {
 
             // Throw an exception if the mesh data is null
             if(meshData == null) throw new NullReferenceException("Mesh data is null, please generate a mesh first.");
