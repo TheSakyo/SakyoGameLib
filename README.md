@@ -97,7 +97,7 @@ Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de 
       ]
     }
     ```
-   N'oublie pas de remplacer `x.y.z` par la version souhaitée de **SakyoGameLib**.
+   N'oublie pas de remplacer `x.y.z` par la version souhaitée de **SakyoGameLib** *([Voir les versions disponibles](https://github.com/TheSakyo/SakyoGameLib/pkgs/npm/fr.thesakyo.sakyogamelib/versions))*.
 
 8. Sauvegarde le fichier `manifest.json`.
 
