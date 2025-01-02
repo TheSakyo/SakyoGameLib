@@ -41,37 +41,35 @@ tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfi
 - Pour **Linux**, crée-le à l'emplacement suivant :  
   `/home/<User>/.upmconfig.toml`
 
-##### Ouvre le fichier `.upmconfig.toml` et ajoute ceci :
+##### Génération de ton **propre token** GitHub :
 
-1. **Générer ton propre token GitHub :**
+1. **Connecte-toi à ton compte GitHub**, si ce n'est pas déjà fait.
 
-   - **Connecte-toi à ton compte GitHub**, si ce n'est pas déjà fait.
+2. Ouvre ce lien [GitHub - Tokens (classic)](https://github.com/settings/tokens).
 
-   - Ouvre ce lien [GitHub - Tokens (classic)](https://github.com/settings/tokens).
+3.  Clique sur **Generate New Token** en haut à droite.
 
-   - Clique sur **Generate New Token** en haut à droite.
+4. Choisis **Generate a new token (classic)**.
 
-   - Choisis **Generate a new token (classic)**.
+5. Donne un nom à ton token *(n'importe quel nom suffira)*.
 
-   - Donne un nom à ton token *(n'importe quel nom suffira)*.
+6. Sous **Expiration**, sélectionne **No expiration**.
 
-   - Sous **Expiration**, sélectionne **No expiration**.
+7. Coche la permission **read:packages** dans la partie **Select scopes** pour permettre la lecture des paquets.
 
-   - Coche la permission **read:packages** dans la partie **Select scopes** pour permettre la lecture des paquets.
+8. Clique sur **Generate token** tout en bas de la page. 
 
-   - Clique sur **Generate token** tout en bas de la page.
+9. Une fois ton token généré, **copie-le**.
 
-   - Une fois ton token généré, **copie-le**.
+##### Configuration du fichier **`.upmconfig.toml`** :
 
-2. **Configurer le fichier `.upmconfig.toml` avec ton token :**
+Retourne dans le fichier `.upmconfig.toml` et ajoute la configuration suivante, en remplaçant `TON_TOKEN_ICI` par ton token GitHub que tu viens de générer et copier :
 
-   Retourne dans le fichier `.upmconfig.toml` et ajoute la configuration suivante, en remplaçant `TON_TOKEN_ICI` par ton token GitHub que tu viens de générer et copier :
-
-    ```toml
-    [npmAuth."https://npm.pkg.github.com/@thesakyo"] 
-    token = "TON_TOKEN_ICI" 
-    alwaysAuth = true
-    ```
+```toml
+[npmAuth."https://npm.pkg.github.com/@thesakyo"] 
+token = "TON_TOKEN_ICI" 
+alwaysAuth = true
+```
    
 Cette instruction permettra à Unity de se connecter au registre GitHub pour télécharger le package **SakyoGameLib**.
 
