@@ -138,6 +138,10 @@ Si tu veux contribuer à **SakyoGameLib**, voici comment faire :
 
 Si tu rencontres des problèmes ou si tu as des questions, n'hésite pas à ouvrir une **issue** dans le dépôt GitHub. Je serai heureux de t'aider, si je le peux bien sûr ! 🙂
 
+## 📝 Changelog
+
+Tu peux consulter le fichier [CHANGELOG](./CHANGELOG.md) pour découvrir les dernières mises à jour, ainsi que les versions précédentes de **SakyoGameLib**.
+
 ## 📜 License
 
 Ce projet est sous MIT License. Pour plus de détails, consulte le fichier [LICENSE](./LICENSE).
