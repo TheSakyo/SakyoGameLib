@@ -20,7 +20,7 @@ namespace SakyoGame.Lib.Editor {
      */
     [CustomEditor(typeof(ButtonUI), true)]
     [CanEditMultipleObjects]
-    internal class ButtonUIEditor : ButtonEditor {
+    public class ButtonUIEditor : ButtonEditor {
 
         /************************/
         /****** PROPERTIES ******/

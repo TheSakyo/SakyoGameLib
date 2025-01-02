@@ -11,7 +11,7 @@ namespace SakyoGame.Lib.Editor {
      * </summary>
      */
     [CustomEditor(typeof(MapGenerator))]
-    internal class MapGeneratorEditor : UnityEditor.Editor {
+    public class MapGeneratorEditor : UnityEditor.Editor {
 
         /************************/
         /****** PROPERTIES ******/
