@@ -6,7 +6,7 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/), et ce p
 
 ---
 
-## [0.0.2] - 2025-01-02 20h (CET)
+## [0.0.2] - 2025-01-02 21h (CET)
 
 ### Modifications
 - Les méthodes des classes `MapGenerator` et `Display` sont maintenant surchargeables, permettant ainsi une plus grande personnalisation.
