@@ -17,7 +17,7 @@ namespace SakyoGame.Lib.Editor {
      * </summary>
      */
     [CustomEditor(typeof(ResponsiveUI))]
-    internal class ResponsiveUIDrawer : UnityEditor.Editor {
+    public class ResponsiveUIDrawer : UnityEditor.Editor {
 
         /************************/
         /****** PROPERTIES ******/
