@@ -1,18 +1,18 @@
-﻿# Changelog
+# Changelog
 
-All notable changes to this project will be documented in this file.
+Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
+Le format est basé sur [Keep a Changelog](https://keepachangelog.com/), et ce projet suit [Semantic Versioning](https://semver.org/).
 
 ---
 
 ## [0.0.2] - 2025-01-02 19h (CET)
 
-### Changed
-- Made the `MapGenerator` and `Display` classes methods overridable, allowing for greater customization.
-- Updated the visibility of the `CameraView` class getter to `public` for broader access.
+### Modifications
+- Les méthodes des classes `MapGenerator` et `Display` sont maintenant surchargeables, permettant ainsi une plus grande personnalisation.
+- La visibilité du getter de la classe `CameraView` a été mise à jour pour être `public`, offrant un accès plus large.
 
 ---
 
 ## [0.0.1] - 2025-01-02 14h (CET)
-- Initial release of the project.
+- Première version du projet.
