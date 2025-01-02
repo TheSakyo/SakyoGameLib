@@ -167,10 +167,6 @@ Je suis encore débutant dans le développement de jeux Unity, mais je compte l'
 
    Tu peux consulter le fichier [CHANGELOG](./CHANGELOG.md) pour découvrir les dernières mises à jour, ainsi que les versions précédentes de **SakyoGameLib**.
 
-## 📝 Changelog
-
-Tu peux consulter le fichier [CHANGELOG](./CHANGELOG.md) pour découvrir les dernières mises à jour, ainsi que les versions précédentes de **SakyoGameLib**.
-
 ## 📜 License
 
    Ce projet est sous MIT License. Pour plus de détails, consulte le fichier [LICENSE](./LICENSE).
