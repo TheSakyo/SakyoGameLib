@@ -43,12 +43,36 @@ tu peux opter pour une installation manuelle avec l'aide des fichiers `.upmconfi
 
 ##### Ouvre le fichier `.upmconfig.toml` et ajoute ceci :
 
-```toml
-[npmAuth."https://npm.pkg.github.com/@thesakyo"] 
-token = "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" 
-alwaysAuth = true
-```
+1. **Générer ton propre token GitHub :**
 
+   - **Connecte-toi à ton compte GitHub**, si ce n'est pas déjà fait.
+
+   - Ouvre ce lien [GitHub - Tokens (classic)](https://github.com/settings/tokens).
+
+   - Clique sur **Generate New Token** en haut à droite.
+
+   - Choisis **Generate a new token (classic)**.
+
+   - Donne un nom à ton token *(n'importe quel nom suffira)*.
+
+   - Sous **Expiration**, sélectionne **No expiration**.
+
+   - Coche la permission **read:packages** dans la partie **Select scopes** pour permettre la lecture des paquets.
+
+   - Clique sur **Generate token** tout en bas de la page.
+
+   - Une fois ton token généré, **copie-le**.
+
+2. **Configurer le fichier `.upmconfig.toml` avec ton token :**
+
+   Retourne dans le fichier `.upmconfig.toml` et ajoute la configuration suivante, en remplaçant `TON_TOKEN_ICI` par ton token GitHub que tu viens de générer et copier :
+
+    ```toml
+    [npmAuth."https://npm.pkg.github.com/@thesakyo"] 
+    token = "TON_TOKEN_ICI" 
+    alwaysAuth = true
+    ```
+   
 Cette instruction permettra à Unity de se connecter au registre GitHub pour télécharger le package **SakyoGameLib**.
 
 Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de ton projet Unity.
@@ -130,8 +154,11 @@ Les exemples d'utilisation ne sont pas encore fournis. Tu peux cependant consult
 Si tu veux contribuer à **SakyoGameLib**, voici comment faire :
 
 1. Fork le dépôt sur GitHub.
+
 2. Crée une nouvelle branche pour ta fonctionnalité ou ta correction de bug.
+
 3. Effectue tes modifications.
+
 4. Soumets une **Pull Request** avec une description claire de tes changements.
 
 ## 💬 Support
