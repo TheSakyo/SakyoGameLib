@@ -76,7 +76,7 @@ Ensuite, il va falloir renseigner le package dans le fichier `manifest.json` de 
     }
     ````
     - `domain.organization.package` représente un package déjà installé dans ton projet Unity.
-    - `x.y.z` représente la version du package que tu souhaites installer.
+    - `x.y.z` représente la version du package installé.
 
     **Information :** Il est possible que tu aies déjà des dépendances dans la section **dependencies**.
 
