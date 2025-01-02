@@ -10,7 +10,7 @@
     "url": "https://sakyo-dev.pro/"
   },
   "_upm": {
-    "changeog": "Modify the MapGenerator and Display classes with an overridable method and change the visibility of the CameraView class getter to public."
+    "changelog": "Modify the MapGenerator and Display classes with an overridable method and change the visibility of the CameraView class getter to public."
   },
   "licenses": [
     {
