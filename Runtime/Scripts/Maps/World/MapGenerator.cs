@@ -179,7 +179,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="mapDimension">The map dimension (2D or 3D) to generate.</param>
          * <exception cref="NotSupportedException">Thrown if the map dimension is not supported.</exception>
          */
-        public void GenerateMap(EMapDimension mapDimension, bool isCoroutine = false) {
+        public virtual void GenerateMap(EMapDimension mapDimension, bool isCoroutine = false) {
 
             IEnumerator mapGeneration = null; // Variable to store the map generation process
 
@@ -213,7 +213,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="isCoroutine">Flag to determine if coroutine is used for progressive rendering.</param>
          * <returns>An IEnumerator for coroutine execution.</returns>
          */
-        private IEnumerator Process2DMapGeneration(bool isCoroutine = false) {
+        protected IEnumerator Process2DMapGeneration(bool isCoroutine = false) {
 
             // Generate the 2D noise map based on the defined parameters
             _noiseMap = PerlinNoise.GenerateNoiseMap2D(ChunkSize, ChunkSize, scale, octaves, persistances, lacuranity, seed);
@@ -261,7 +261,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="isCoroutine">Flag to determine if coroutine is used for progressive rendering.</param>
          * <returns>An IEnumerator for coroutine execution.</returns>
          */
-        private IEnumerator Process3DMapGeneration(bool isCoroutine = false) {
+        protected IEnumerator Process3DMapGeneration(bool isCoroutine = false) {
 
             /*
              * Generate the 3D noise map based on the defined parameters
