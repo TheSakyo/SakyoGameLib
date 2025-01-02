@@ -6,9 +6,10 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/), et ce p
 
 ---
 
-## [0.0.2] - 2025-01-02 22h (CET)
+## [0.0.2] - 2025-01-02 23h (CET)
 
 ### Modifications
+- Les classes `MapGeneratorEditor`, `ResponsiveUIEditor` et `ButtonUIEditor` deviennent publiques, permettant ainsi une plus grande personnalisation.
 - Les méthodes des classes `MapGenerator` et `Display` sont maintenant surchargeables, permettant ainsi une plus grande personnalisation.
 - La visibilité des méthodes `getter` de la classe `CameraView` a été mise à jour pour être `public`, offrant un accès plus large.
 
