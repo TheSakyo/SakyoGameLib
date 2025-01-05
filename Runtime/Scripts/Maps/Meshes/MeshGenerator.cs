@@ -1,5 +1,6 @@
 using System;
 using SakyoGame.Lib.Managers;
+using SakyoGame.Lib.Shared.Attributes;
 using SakyoGame.Lib.Structs;
 using UnityEngine;
 
@@ -39,8 +40,11 @@ namespace SakyoGame.Lib.Maps.Meshes {
          */
         public static void Generate2DTerrainMesh(float[,] heightMap, float meshHeightValue, AnimationCurve heightCurve, int levelOfDetail) {
 
-            int width = heightMap.GetLength(0); // Get the width of the heightMap
-            int height = heightMap.GetLength(1); // Get the height of the heightMap
+            // Create a new MeshData object
+            MeshData = new (heightMap);
+
+            int width = MeshData.Width; // Get the width of the height map in the mesh data
+            int height = MeshData.Height; // Get the height of the height map in the mesh data
 
             float halfWidth = (width - 1) / -2f; // Calculate the half width of the mesh
             float halfHeight = (height - 1) / -2f; // Calculate the half height of the mesh
@@ -51,8 +55,8 @@ namespace SakyoGame.Lib.Maps.Meshes {
             // Number of vertices per row in relation to LOD
             int newVertices = (width - 1) / meshIncrement + 1;
 
-            // Create a new MeshData object
-            MeshData = new (newVertices, newVertices);
+            MeshData.Width = newVertices;
+            MeshData.Height = newVertices;
 
             // Index for vertices
             int vertexIndex = 0;
@@ -96,14 +100,15 @@ namespace SakyoGame.Lib.Maps.Meshes {
          * <param name="heightCurve">An AnimationCurve used to evaluate and transform volumeMap values.</param>
          * <param name="levelOfDetail">The level of detail (LOD) determines the density of the mesh vertices.</param>
          */
+        [Beta("This method is still in development and may not be fully functional.")]
         public static void Generate3DTerrainMesh(float[,,] volumeMap, float meshHeightValue, AnimationCurve heightCurve, int levelOfDetail) {
 
-            /*
-             * Calculate the width, height, and depth of the volumeMap and adjust for center position
-             */
-            int width = volumeMap.GetLength(0); // Get the width of the volumeMap
-            int height = volumeMap.GetLength(1); // Get the height of the volumeMap
-            int depth = volumeMap.GetLength(2); // Get the depth of the volumeMap
+            // Create a new MeshData object
+            MeshData = new (volumeMap);
+
+            int width = MeshData.Width; // Get the width of the height map in the mesh data
+            int height = MeshData.Height; // Get the height of the height map in the mesh data
+            int depth = MeshData.Depth; // Get the depth of the volume map in the mesh data
 
             float halfWidth = (width - 1) / -2f;
             float halfDepth = (depth - 1) / -2f;
@@ -114,8 +119,9 @@ namespace SakyoGame.Lib.Maps.Meshes {
             // Number of vertices per row in relation to LOD
             int newVertices = (width - 1) / meshIncrement + 1;
 
-            // Create a new MeshData object
-            MeshData = new (newVertices, newVertices, newVertices);
+            MeshData.Width = newVertices;
+            MeshData.Height = newVertices;
+            MeshData.Depth = newVertices;
 
             // Index for vertices
             int vertexIndex = 0;
@@ -172,4 +178,3 @@ namespace SakyoGame.Lib.Maps.Meshes {
         }
     }
 }
-
