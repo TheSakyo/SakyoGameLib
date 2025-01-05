@@ -1,0 +1,32 @@
+﻿name: Validate PR changes
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get list of changed files
+        id: diff
+        run: |
+          git fetch origin main
+          files=$(git diff --name-only origin/main...${{ github.head_ref }})
+          echo "Changed files: $files"
+          echo "files=$files" >> $GITHUB_ENV
+
+      - name: Check if both package.json and CHANGELOG.md are modified
+        run: |
+          if [[ "$files" != *"package.json"* || "$files" != *"CHANGELOG.md"* ]]; then
+            echo "Error: Both package.json and CHANGELOG.md must be modified before making a pull request to the main branch."
+            exit 1
+          fi
+
+      - name: Success message
+        run: echo "Both package.json and CHANGELOG.md have been modified. PR is valid."
