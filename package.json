@@ -1,6 +1,6 @@
 {
   "name": "fr.thesakyo.sakyogamelib",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "SakyoGameLib",
   "description": "Une librairie en C# contenant diverses méthodes utiles pour faciliter le développement de jeux sur Unity.",
   "unity": "6000.0",
@@ -10,7 +10,7 @@
     "url": "https://sakyo-dev.pro/"
   },
   "_upm": {
-    "changelog": "Modify the MapGenerator and Display classes with an overridable method and change the visibility of the CameraView class getter to public."
+    "changelog": "Beta attributes added for all 3D map generation logic and modified MeshData class constructor logic."
   },
   "licenses": [
     {

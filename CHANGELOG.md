@@ -6,6 +6,16 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/), et ce p
 
 ---
 
+## [0.0.3] - 2025-01-05 13h (CET)
+
+### Ajouts et Modifications
+- Ajout d'un nouveau namespace `SakyGame.Lib.Shared` pour définir des fonctionnalités partagées entre les différents projets et qui ne sont pas spécifiques à un projet en particulier.
+- Ajout d'un attribut personnalisé nommé `Beta` pour représenter des fonctionnalités en cours de développement.
+- Mise en place de l'attribut `Beta` sur les fonctionnalités représentant la génération 3D de la map (En cours de développement).
+- Modification de la logique des constructeurs de la classe `MeshData` pour fixer le problème du tableau de `float` qui avait pour chaque élément une valeur de `0`.
+
+---
+
 ## [0.0.2] - 2025-01-02 23h (CET)
 
 ### Modifications
