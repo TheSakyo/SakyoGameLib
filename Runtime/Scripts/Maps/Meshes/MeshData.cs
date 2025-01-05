@@ -73,7 +73,6 @@ namespace SakyoGame.Lib.Maps.Meshes {
          */
         public MeshData(float[,] heightMap) {
 
-
             // Allocate a 2D array for the height map in the mesh data
             _heightMap = heightMap;
 
