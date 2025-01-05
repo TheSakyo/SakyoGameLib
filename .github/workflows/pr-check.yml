@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - main  # Branche cible, ici 'main'
+      - main
 
 jobs:
   check-changes:
@@ -18,13 +18,13 @@ jobs:
         run: |
           git fetch --prune --unshallow
 
-      - name: Check if package.json or CHANGELOG.md is modified
+      - name: Check if package.json and CHANGELOG.md is modified
         run: |
-          # Comparer la branche source avec la branche main
+          # Compare the source branch with the main branch
           git fetch origin main  # S'assurer que la branche main est à jour
           CHANGES=$(git diff --name-only origin/main..${{ github.head_ref }})
 
-          # Vérifier si l'un des fichiers spécifiques a été modifié
+          # Check if one of the specific files has been modified
           if [[ "$CHANGES" != *"package.json"* || "$CHANGES" != *"CHANGELOG.md"* ]]; then
             echo "Error: You must modify either package.json and CHANGELOG.md before making a pull request to the main branch."
             exit 1
