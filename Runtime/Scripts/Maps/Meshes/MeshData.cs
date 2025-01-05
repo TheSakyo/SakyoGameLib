@@ -68,7 +68,7 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  Constructor for initializing a new MeshData object with specified width and height.
          *  Allocates memory for vertices, UVs, and triangles based on the grid dimensions.
          * </summary>
-         *  <param name="heightMap"></param>
+         * <param name="heightMap">A 2D array representing the height values of the terrain at each point.</param>
          * <returns>A new MeshData object with the specified dimensions.</returns>
          */
         public MeshData(float[,] heightMap) {
@@ -89,7 +89,7 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  Constructor for initializing a new MeshData object with specified width, height, and depth.
          *  Allocates memory for vertices, UVs, and triangles based on the grid dimensions.
          * </summary>
-         * <param name="volumeMap"></param>
+         * <param name="volumeMap">A 3D array representing the volume values of the terrain at each point.</param>
          * <returns>A new MeshData object with the specified dimensions.</returns>
          */
         [Beta("This constructor is still in development and may not be fully functional.")]
