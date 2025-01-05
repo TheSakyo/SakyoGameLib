@@ -1,3 +1,4 @@
+using SakyoGame.Lib.Shared.Attributes;
 using UnityEngine;
 using Random = System.Random;
 
@@ -72,6 +73,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="seed">Seed for random number generation to ensure consistent results.</param>
          * <returns>A 3D array representing the generated noise map.</returns>
          */
+        [Beta("This method is still in development and may not be fully functional.")]
         public static float[,,] GenerateNoiseMap3D(int mapWidth, int mapHeight, int mapDepth, float scale, int octaves, float persistances,
             float lacuranity, int seed) {
 
@@ -137,6 +139,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="random">Random number generator.</param>
          * <returns>An array of Vector3 representing the offsets for each octave.</returns>
          */
+        [Beta("This method is still in development.")]
         private static Vector3[] GenerateOctaveOffsets3D(int octaves, Random random) {
 
             Vector3[] octaveOffsets = new Vector3[octaves]; // Create an array to store the offsets for each octave.
@@ -211,6 +214,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="octaveOffsets">Array of offsets for each octave.</param>
          * <returns>The calculated noise height for the given point.</returns>
          */
+        [Beta("This method is still in development.")]
         private static float CalculateNoiseHeight3D(int x, int y, int z, int mapWidth, int mapHeight, int mapDepth, float scale, int octaves,
             float persistances, float lacuranity, Vector3[] octaveOffsets) {
 
@@ -271,6 +275,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="minNoiseHeight">Minimum noise height value.</param>
          * <param name="maxNoiseHeight">Maximum noise height value.</param>
          */
+        [Beta("This method is still in development.")]
         private static void NormalizeNoiseMap3D(float[,,] noiseMap, int mapWidth, int mapHeight, int mapDepth, float minNoiseHeight, float maxNoiseHeight) {
 
             /*
