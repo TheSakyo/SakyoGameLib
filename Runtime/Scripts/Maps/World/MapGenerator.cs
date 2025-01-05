@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using SakyoGame.Lib.Enums;
 using SakyoGame.Lib.Maps.Meshes;
+using SakyoGame.Lib.Shared.Attributes;
 using SakyoGame.Lib.Structs;
 using SakyoGame.Lib.Textures;
 using UnityEngine;
@@ -116,13 +117,6 @@ namespace SakyoGame.Lib.Maps.World {
          */
         private Color[] _mapColor;
 
-        /**
-         * <summary>
-         *  The 2D array to hold the generated noise map for terrain heights.
-         * </summary>
-         */
-        private float[,] _noiseMap;
-
         /*********************/
         /****** AWAKING ******/
         /*********************/
@@ -151,6 +145,7 @@ namespace SakyoGame.Lib.Maps.World {
          *  Getter and setter for determining if the map is 2D or 3D dimensional.
          * </summary>
          */
+        [Beta("This property is still in development.")]
         public bool IsThreeDimensional { get; set; }
 
         /**
@@ -216,7 +211,7 @@ namespace SakyoGame.Lib.Maps.World {
         protected IEnumerator Process2DMapGeneration(bool isCoroutine = false) {
 
             // Generate the 2D noise map based on the defined parameters
-            _noiseMap = PerlinNoise.GenerateNoiseMap2D(ChunkSize, ChunkSize, scale, octaves, persistances, lacuranity, seed);
+            float[,] noiseMap = PerlinNoise.GenerateNoiseMap2D(ChunkSize, ChunkSize, scale, octaves, persistances, lacuranity, seed);
 
             // Initialize color array to store the color values for the terrain
             _mapColor = new Color[ChunkSize * ChunkSize];
@@ -228,7 +223,7 @@ namespace SakyoGame.Lib.Maps.World {
                 for(int x = 0; x < ChunkSize; x++) {
 
                     // Get the height value for the current point
-                    float currentHeight = _noiseMap[x, y];
+                    float currentHeight = noiseMap[x, y];
 
                     // Assign the corresponding color based on the terrain regions
                     for(int i = 0; i < regions.Length; i++) {
@@ -243,12 +238,12 @@ namespace SakyoGame.Lib.Maps.World {
 
                 if(!isCoroutine) continue; // If not using coroutine, skip to the next iteration
 
-                Render2DMap(_mapColor, _noiseMap); // Render the current map
+                Render2DMap(_mapColor, noiseMap); // Render the current map
                 yield return null; // Wait for one frame before continuing
             }
 
             // If not using coroutine, render the final map after generation
-            if(!isCoroutine) Render2DMap(_mapColor, _noiseMap);
+            if(!isCoroutine) Render2DMap(_mapColor, noiseMap);
 
             IsGenerated = true; // Set the generated flag to true
         }
@@ -261,12 +256,13 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="isCoroutine">Flag to determine if coroutine is used for progressive rendering.</param>
          * <returns>An IEnumerator for coroutine execution.</returns>
          */
+        [Beta("This method is still in development and may not be fully functional.")]
         protected IEnumerator Process3DMapGeneration(bool isCoroutine = false) {
 
             /*
              * Generate the 3D noise map based on the defined parameters
              */
-            float[,,] noiseMap = PerlinNoise.GenerateNoiseMap3D(ChunkSize, ChunkSize, ChunkSize, scale, octaves, persistances,
+            float[,,] volumeMap = PerlinNoise.GenerateNoiseMap3D(ChunkSize, ChunkSize, ChunkSize, scale, octaves, persistances,
                 lacuranity, seed);
 
             // Initialize color array to store the color values for the terrain
@@ -278,7 +274,7 @@ namespace SakyoGame.Lib.Maps.World {
                     for(int x = 0; x < ChunkSize; x++) {
 
                         // Get the height value for the current point
-                        float currentHeight = noiseMap[x, y, z];
+                        float currentHeight = volumeMap[x, y, z];
 
                         // Assign the corresponding color based on the terrain regions
                         for(int i = 0; i < regions.Length; i++) {
@@ -294,12 +290,12 @@ namespace SakyoGame.Lib.Maps.World {
 
                 if(!isCoroutine) continue; // If not using coroutine, skip to the next iteration
 
-                Render3DMap(mapColor, noiseMap); // Render the current map
+                Render3DMap(mapColor, volumeMap); // Render the current map
                 yield return null; // Wait for one frame before continuing
             }
 
             // If not using coroutine, render the final map after generation
-            if(!isCoroutine) Render3DMap(mapColor, noiseMap);
+            if(!isCoroutine) Render3DMap(mapColor, volumeMap);
 
             IsGenerated = true; // Set the generated flag to true
         }
@@ -336,6 +332,7 @@ namespace SakyoGame.Lib.Maps.World {
          * <param name="mapColor">The color map to apply to the terrain (used for color-based maps).</param>
          * <param name="noiseMap">The noise map used for terrain elevation data.</param>
          */
+        [Beta("This method is still in development.")]
         private void Render3DMap(Color[] mapColor, float[,,] noiseMap) {
 
             // Find the Display object in the scene to show the map

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SakyoGame.Lib.Shared.Attributes;
+using UnityEngine;
 
 namespace SakyoGame.Lib.Textures {
 
@@ -73,6 +74,7 @@ namespace SakyoGame.Lib.Textures {
          *  Nested class for generating 3D textures.
          * </summary>
          */
+        [Beta("This class is still in development and may not be fully functional.")]
         public static class ThreeDimensional {
 
             /**
@@ -85,6 +87,7 @@ namespace SakyoGame.Lib.Textures {
              * <param name="depth">The depth of the texture.</param>
              * <returns>The generated texture.</returns>
              */
+            [Beta("This method is still in development and may not be fully functional.")]
             public static Texture3D TextureFromColourMap(Color[] mapColor, int width, int height, int depth) {
 
                 // Initialize a new Texture3D.
@@ -103,6 +106,7 @@ namespace SakyoGame.Lib.Textures {
              * <param name="volumeMap">The volume map used to generate the texture. A 3D array representing volume data.</param>
              * <returns>The generated Texture3D object.</returns>
              */
+            [Beta("This method is still in development and may not be fully functional.")]
             public static Texture3D TextureFromVolumeMap(float[,,] volumeMap) {
 
                 // Check if the volume map is null. If it is, return null as no texture can be generated.

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SakyoGame.Lib.Shared.Attributes;
+using UnityEngine;
 
 namespace SakyoGame.Lib.Maps.Meshes {
 
@@ -15,27 +16,6 @@ namespace SakyoGame.Lib.Maps.Meshes {
 
         /**
          * <summary>
-         *  The width of the mesh grid.
-         * </summary>
-         */
-        private readonly int _width;
-
-        /**
-         * <summary>
-         *  The height of the mesh grid.
-         * </summary>
-         */
-        private readonly int _height;
-
-        /**
-         * <summary>
-         *  The depth of the mesh grid.
-         * </summary>
-         */
-        private readonly int _depth;
-
-        /**
-         * <summary>
          *  A 2D array representing the height values of the terrain at each point.
          * </summary>
          */
@@ -46,6 +26,7 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  A 3D array representing the volume values of the terrain at each point.
          * </summary>
          */
+        [Beta("This property is still in development.")]
         private readonly float[,,] _volumeMap;
 
         /**
@@ -87,23 +68,20 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  Constructor for initializing a new MeshData object with specified width and height.
          *  Allocates memory for vertices, UVs, and triangles based on the grid dimensions.
          * </summary>
-         * <param name="meshWidth">The width of the mesh grid.</param>
-         * <param name="meshHeight">The height of the mesh grid.</param>
+         *  <param name="heightMap"></param>
          * <returns>A new MeshData object with the specified dimensions.</returns>
          */
-        public MeshData(int meshWidth, int meshHeight) {
+        public MeshData(float[,] heightMap) {
 
-            _width = meshWidth; // Set the width of the mesh
-            _height = meshHeight; // Set the height of the mesh
+            // Allocate a 2D array for the height map in the mesh data
+            _heightMap = heightMap;
 
-            // Allocate a 2D array for the height map
-            _heightMap = new float[meshWidth, meshHeight];
+            Width = _heightMap.GetLength(0); // Set the width of the height map in the mesh data
+            Height = _heightMap.GetLength(1); // Set the height of the height map in the mesh data
 
-            // Allocate arrays for vertices, UVs, and triangles based on mesh dimensions //
-
-            _vertices = new Vector3[meshWidth * meshHeight]; // Create an array of vertices
-            _uvs = new Vector2[meshWidth * meshHeight]; // Create an array of UV coordinates
-            _triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6]; // Create an array of triangles
+            _vertices = new Vector3[Width * Width]; // Create an array of vertices
+            _uvs = new Vector2[Width * Width]; // Create an array of UV coordinates
+            _triangles = new int[(Width - 1) * (Width - 1) * 6]; // Create an array of triangles
         }
 
         /**
@@ -111,23 +89,22 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  Constructor for initializing a new MeshData object with specified width, height, and depth.
          *  Allocates memory for vertices, UVs, and triangles based on the grid dimensions.
          * </summary>
-         * <param name="meshWidth">The width of the mesh grid.</param>
-         * <param name="meshHeight">The height of the mesh grid.</param>
-         * <param name="meshDepth">The depth of the mesh grid.</param>
+         * <param name="volumeMap"></param>
          * <returns>A new MeshData object with the specified dimensions.</returns>
          */
-        public MeshData(int meshWidth, int meshHeight, int meshDepth) {
+        [Beta("This constructor is still in development and may not be fully functional.")]
+        public MeshData(float[,,] volumeMap) {
 
-            _width = meshWidth; // Set the width of the mesh
-            _height = meshHeight; // Set the height of the mesh
-            _depth = meshDepth; // Set the depth of the mesh
+            // Allocate a 3D array for the volume map in the mesh data
+            _volumeMap = volumeMap;
 
-            // Allocate a 3D array for the volume map
-            _volumeMap = new float[meshWidth, meshHeight, meshDepth];
+            Width = _volumeMap.GetLength(0); // Set the width of the volume map in the mesh data
+            Height = _volumeMap.GetLength(1); // Set the height of the volume map in the mesh data
+            Depth = _volumeMap.GetLength(2); // Set the depth of the volume map in the mesh data
 
-            _vertices = new Vector3[meshWidth * meshHeight * meshDepth]; // Create an array of vertices
-            _uvs = new Vector2[meshWidth * meshHeight * meshDepth]; // Create an array of UV coordinates
-            _triangles = new int[(meshWidth - 1) * (meshHeight - 1) * (meshDepth - 1) * 6]; // Create an array of triangles
+            _vertices = new Vector3[Width * Height * Depth]; // Create an array of vertices
+            _uvs = new Vector2[Width * Height * Depth]; // Create an array of UV coordinates
+            _triangles = new int[(Width - 1) * (Height - 1) * (Depth - 1) * 6]; // Create an array of triangles
         }
 
         /****************************/
@@ -180,24 +157,31 @@ namespace SakyoGame.Lib.Maps.Meshes {
 
         /**
          * <summary>
-         *  Gets the width of the mesh grid.
+         *  Gets or Sets the width of the mesh grid.
          * </summary>
          */
-        public int Width => _width;
+        public int Width { get; internal set; }
 
         /**
          * <summary>
-         *  Gets the height of the mesh grid.
+         *  Gets Or Sets the height of the mesh grid.
          * </summary>
+         * <remarks>
+         *  The setter is not
+         * </remarks>
          */
-        public int Height => _height;
+        public int Height { get; internal set; }
 
         /**
          * <summary>
-         *  Gets the depth of the mesh grid.
+         *  Gets Or Sets the depth of the mesh grid.
          * </summary>
+         * <remarks>
+         *  The setter is not
+         * </remarks>
          */
-        public int Depth => _depth;
+        [Beta("This property is still in development.")]
+        public int Depth { get; internal set; }
 
         /**
          * <summary>
@@ -211,6 +195,7 @@ namespace SakyoGame.Lib.Maps.Meshes {
          *  Gets the volumeMap array.
          * </summary>
          */
+        [Beta("This property is still in development.")]
         public float[,,] VolumeMap => _volumeMap;
 
         /**

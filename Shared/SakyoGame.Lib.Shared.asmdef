@@ -1,15 +1,7 @@
 {
-  "name": "SakyoGame.Lib",
-  "references": [
-    "SakyoGame.Lib.Shared",
-    "Unity.TextMeshPro"
-  ],
-  "includePlatforms": [
-    "Editor",
-    "LinuxStandalone64",
-    "macOSStandalone",
-    "WindowsStandalone64"
-  ],
+  "name": "SakyoGame.Lib.Shared",
+  "references": [],
+  "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": true,
   "overrideReferences": false,
