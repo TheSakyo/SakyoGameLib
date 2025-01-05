@@ -17,11 +17,11 @@ jobs:
       - name: Fetch all branches
         run: |
           git fetch --prune --unshallow
+          git fetch origin main
+          git fetch origin development
 
       - name: Get the list of modified files
         run: |
-          # Ensure the main branch is up to date
-          git fetch origin main
           # Fetch the list of files modified in the source branch (PR branch)
           CHANGES=$(git diff --name-only origin/main..${{ github.head_ref }})
           echo "Modified files: $CHANGES"
