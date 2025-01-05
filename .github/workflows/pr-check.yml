@@ -23,7 +23,7 @@ jobs:
       - name: Get the list of modified files
         run: |
           # Fetch the list of files modified in the source branch (PR branch)
-          CHANGES=$(git diff --name-only origin/main..origin/${{ github.head_ref }})
+          CHANGES=$(git diff --name-only origin/main..origin/${{ github.head_ref }} | tr '\n' ' ')
           echo "Modified files: $CHANGES"
           echo "CHANGES=$CHANGES" >> $GITHUB_ENV
 
