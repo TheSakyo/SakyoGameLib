@@ -1,6 +1,7 @@
 {
   "name": "SakyoGame.Lib",
   "references": [
+    "SakyoGame.Lib.Shared",
     "Unity.TextMeshPro"
   ],
   "includePlatforms": [
