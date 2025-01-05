@@ -23,7 +23,7 @@ jobs:
           # Ensure the main branch is up to date
           git fetch origin main
           # Fetch the list of files modified in the source branch (PR branch)
-          CHANGES=$(git diff --name-only origin/main...${{ github.head_ref }})
+          CHANGES=$(git diff --name-only origin/main..${{ github.head_ref }})
           echo "Modified files: $CHANGES"
           echo "CHANGES=$CHANGES" >> $GITHUB_ENV
 
